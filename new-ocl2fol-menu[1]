@@ -1,0 +1,136 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-gb" lang="en-gb" dir="ltr">
+<head>
+	  <base href="http://www.actiongui.org/index.php/new-ocl2fol-menu" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <meta name="author" content="Super User" />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="generator" content="Joomla! - Open Source Content Management" />
+  <title>Project</title>
+  <link href="/templates/beez_20/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon" />
+  <script src="/media/system/js/mootools-core.js" type="text/javascript"></script>
+  <script src="/media/system/js/core.js" type="text/javascript"></script>
+  <script src="/media/system/js/caption.js" type="text/javascript"></script>
+  <script type="text/javascript">
+window.addEvent('load', function() {
+				new JCaption('img.caption');
+			});
+  </script>
+
+	<link rel="stylesheet" href="/templates/system/css/system.css" type="text/css" />
+	<link rel="stylesheet" href="/templates/beez_20/css/template.css" type="text/css" />
+	<link rel="stylesheet" href="/templates/beez_20/css/position.css" type="text/css" />
+	<link rel="stylesheet" href="/templates/beez_20/css/layout.css" type="text/css" media="screen,projection" />
+	<link rel="stylesheet" href="/templates/beez_20/css/print.css" type="text/css" media="Print" />
+	<link rel="stylesheet" href="/templates/beez_20/css/nature.css" type="text/css" />
+			<link rel="stylesheet" href="/templates/beez_20/css/general.css" type="text/css" />
+
+<!--[if lte IE 6]>
+	<link href="/templates/beez_20/css/ieonly.css" rel="stylesheet" type="text/css" />
+<![endif]-->
+</head>
+<body class="contentpane">
+	<div id="all">
+		<div id="main">
+			
+<div id="system-message-container">
+</div>
+			<div class="item-page">
+
+
+	<ul class="actions">
+			<li>
+		<a href="#" onclick="window.print();return false;"><img src="/media/system/images/printButton.png" alt="Print"  /></a>		</li>
+	
+	</ul>
+
+
+
+
+
+
+
+<h1>OCL2FOL<sup>+</sup></h1>
+<p>OCL2FOL<sup>+</sup> implements our mapping<strong> ocl2fol<sup>+</sup></strong> from OCL to first-order logic.</p>
+<p>The mapping <strong>ocl2fol<sup>+</sup></strong> is available online. See <a href="/index.php/new-ocl2fol-menu?new-ocl2fol-menu?showall=&amp;start=3">here</a>.</p>
+<br />
+<h1>Specification</h1>
+<p>For a limited, but still significant class of <a href="/index.php/languages-menu/data-models-language" target="_self">data models</a> Δ, OCL expressions Η (see below), our mapping ocl2fol<sup>+</sup> satisfies the following properties:</p>
+<p>For every data model<em> M </em>in Δ , and every expression <em>exp</em> in Η, with context <em>M</em>, <em>I</em> instance of <em>M</em> then,</p>
+<p style="text-align: center;">Eval(<em>exp</em>,<em>I</em>) = true if only if O2F<sup>env+</sup>(<em>M</em>,<em>I</em>,<em>exp</em>) satisfy O2F<sup>true</sup>(<em>exp</em>)<br /> Eval(<em>exp</em>,<em>I</em>) = false if only if O2F<sup>env+</sup>(<em>M</em>,<em>I</em>,<em>exp</em>) satisfy O2F<sup>false</sup>(<em>exp</em>)<br /> Eval(<em>exp</em>,<em>I</em>) = null if only if O2F<sup>env+</sup>(<em>M</em>,<em>I</em>,<em>exp</em>) satisfy O2F<sup>null</sup>(<em>exp</em>)<br /> Eval(<em>exp</em>,<em>I</em>) = invalid if only if O2F<sup>env+</sup>(<em>M</em>,<em>I</em>,<em>exp</em>) satisfy O2F<sup>inval</sup>(<em>exp</em>)</p>
+<p>where, Eval(<em>exp</em>, <em>I</em>) is the value returned by the evaluation of the expresion exp in the scenario I, and O2F<sup>env+</sup>(<em>M</em>) is the union of the set of formulas resulting from calling three auxiliary mappings, O2F<sup>data+</sup>(<em>M</em>), O2F<sup>inst+</sup>(<em>I</em>), and O2F<sup>def+</sup>(<em></em><em>exp</em>).</p>
+<br />
+<h1>Current limitations</h1>
+<h3>Data models in Δ:</h3>
+<ul>
+<li>Generalizations between classes are not allowed</li>
+<li>Attributes can only have one of the following types: <span style="text-decoration: underline;">String</span> and <span style="text-decoration: underline;">Integer</span>.</li>
+<li>Association-ends can only have multiplicity 0..*</li>
+<li>There must be one <span style="text-decoration: underline;">isUser</span>-entity.</li>
+</ul>
+<h3>OCL expressions in Η:</h3>
+<p>With respect to <strong>types</strong>:</p>
+<ul>
+<li>Only expressions of class types, <span style="text-decoration: underline;">Set</span>- and <span style="text-decoration: underline;">Bag</span>-types over class types, and <span style="text-decoration: underline;">Set</span>- and <span style="text-decoration: underline;">Bag</span>-types over <span style="text-decoration: underline;">String</span> and <span style="text-decoration: underline;">Integer</span> are allowed.</li>
+</ul>
+<div> </div>
+<div>With respect to <strong>operations </strong>and<strong> iterators</strong>:</div>
+<div>
+<ul>
+<li>Operations on <span style="text-decoration: underline;">String</span> are not allowed, except <span style="text-decoration: underline;">=</span> and <span style="text-decoration: underline;">&lt;&gt;</span>.</li>
+<li>Operations on <span style="text-decoration: underline;">Bag</span>-types are not allowed, except <span style="text-decoration: underline;">-&gt;asSet().</span></li>
+<li><span style="text-decoration: underline;">ocIsTypeOf()</span> and <span style="text-decoration: underline;">oclIsKindOf()</span> are not allowed.</li>
+<li><span style="text-decoration: underline;">oclAsType()</span> is not allowed.</li>
+<li><span style="text-decoration: underline;">asSet()</span> is not allowed.</li>
+<li>-<span style="text-decoration: underline;">&gt;size()</span> is not allowed.</li>
+<li><span style="text-decoration: underline;">min()</span> and <span style="text-decoration: underline;">max()</span> are not allowed.</li>
+<li><span style="text-decoration: underline;">-&gt;sum()</span> is not allowed.</li>
+<li><span style="text-decoration: underline;">-&gt;one()</span> is not allowed.</li>
+<li><span style="text-decoration: underline;">-&gt;isUnique()</span> is not allowed.</li>
+<li><span style="text-decoration: underline;">-&gt;iterate()</span> is not allowed.</li>
+<li><span style="text-decoration: underline;">-&gt;closure()</span> is not allowed.</li>
+<li><span style="text-decoration: underline;">let</span> is not allowed.</li>
+<li><span style="text-decoration: underline;">if_then_else</span> is not allowed.</li>
+</ul>
+</div>
+<br />
+<h1>Web application</h1>
+<p>The tool OCL2FOL<sup>+</sup> is available online <a href="/apps/ocl2folplus/" target="_blank">here</a>.</p>
+<h4>User manual</h4>
+<h5>From scratch:</h5>
+<p>1. Select the <strong>DTM</strong>-tab, and type-in an ActionGUI <a href="/index.php/languages-menu/data-models-language" target="_self">data model</a> <em>M</em> in Δ.</p>
+<p>2. Select the <strong>OCL to FOL</strong>-tab, and add as many OCL boolean expressions (hypothesis) <em>exp</em><sub>1</sub>,..., <em>exp</em><sub>n</sub> in Η as you want by (repeatedly) clicking on the <strong>Add</strong>-button and typing-in the desired expression <em>exp</em><sub>i</sub>.</p>
+<p>Notice that you can always modify or remove OCL boolean expressions already typed-in by clicking on the buttons <strong>Remove</strong> and <strong>Modify</strong>.</p>
+<p>3. Select the <strong>OCL to FOL</strong>-tab, and add an OCL expression <em>exp</em><sub>n+1</sub> (assertion) in H and select the type, by clicking the radio-bottom. Note that if you choose the types true and false, the OCL expression should be boolean.</p>
+<p>4. Select an SMT solver (currently, either Z3 or Yices).</p>
+<p>5. Generate the environment O2F<sup>data+</sup>(<em>M</em>) U {O2F<sup>true</sup>(<em>exp<sub>1</sub></em>),...,O2F<sup>true</sup>(<em>exp<sub>n</sub></em>)} U {O2F<sup>def+</sup>( <em>exp<sub>1</sub></em>),...,O2F<sup>def+</sup>(<em>M</em>, <em>exp<sub>n</sub></em><sub>+1</sub>)} U {O2F<sup>type</sup>(exp<sub>n+1</sub>)}  with the syntax of the selected SMT solver.</p>
+<h5>From a stored project</h5>
+<p>An OCL2FOL<sup>+</sup> <strong>project</strong> consists of a data model <em>M</em> in Δ (the context)<em></em>, a set of OCL boolean expressions <em>exp</em><sub>1</sub>,..., <em>exp</em><sub>n</sub> in Η (the hipothesis), one OCL expression <em>exp</em><sub>n+1 </sub>in Η (the assertion) and a keyword (the type): <em>true</em>, <em>false</em>, <em>null</em>, <em>invalid</em>.</p>
+<p>To store the data model and OCL expressions that you have typed in the OCL2FOL<sup>+</sup> web application as an OCL2FOL<sup>+ </sup>project, simply click on the button <strong>Store</strong> and download the generated XML file (by default, <span style="text-decoration: underline;">memento.xml</span>) to your local disk.</p>
+<p>To restore an OCL2FOL<sup>+</sup> project, simply click on the button <strong>Restore</strong> and upload the project from your local disk.</p>
+<p> </p>
+<br />
+<h1>Examples</h1>
+<p>Consider a simple data model <strong>Persons</strong> containing just one class Person, with one attribute age of type Integer and a self-association whose association-ends are friendsOf (x is a friend of y) and friendTo (y is considered a friend by x).</p>
+<p>  entity Person {<br />    Integer age<br />    Set(Person) friendsOf oppositeTo friendsFor<br />    Set(Person) friendsFor oppositeTo friendsOf<br />  }</p>
+<p>Consider the following set of assertions:</p>
+<ol>
+<li>Person.allInstances()-&gt;forAll(p|p.age&gt;18)</li>
+<li>Person.allInstances()-&gt;exists(p|p.age&lt;=18)</li>
+<li>Person.allInstances()-&gt;exists(p|p.age.oclIsUndefined())</li>
+<li>Person.allInstances()-&gt;exists(p|p.oclIsUndefined())</li>
+<li>Person.allInstances()-&gt;forAll(p|p.oclIsUndefined())</li>
+<li>Person.allInstances()-&gt;notEmpty()</li>
+<li>Person.allInstances()-&gt;collect(p|p.age)-&gt;asSet()-&gt;exists(a|a.oclIsUndefined())</li>
+<li>Person.allInstances()-&gt;any(p|p.age&gt;16).oclIsUndefined()</li>
+<li>Person.allInstances()-&gt;any(p|p.age&gt;16).age.oclIsInvalid()</li>
+<li>not(Person.allInstances()-&gt;any(p|p.age&lt;16).age.oclIsInvalid())</li>
+</ol>
+<p> </p>
+	
+</div>
+
+		</div>
+	</div>
+</body>
+</html>
